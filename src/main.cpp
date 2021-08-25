@@ -5,13 +5,13 @@
 
 static constexpr unsigned max_bufsize = 64;
 
+//necessary, because pow(x,y) returns float and produces rounding errors
 uint64_t powerOfTen(unsigned power) {
     uint64_t ret = 1;
     for(uint64_t i = 0; i < power; i++)
         ret *= 10;
     return ret;
 }
-
 
 time_t charToTime(char* array){
     time_t ret = 0;
@@ -24,21 +24,12 @@ time_t charToTime(char* array){
             Serial.println(i-1);
             return 0;
         }
-        /*
-        Serial.print("char '");
-        Serial.print(array[i-1]);
-        Serial.print("' is ");
-        Serial.print(array[i-1] - '0');
-        Serial.print(", so its correct decimal place is ");
-        Serial.println(powerOfTen(last - i) * (array[i-1] - '0'));
-        */
         ret += powerOfTen(last - i) * (array[i-1] - '0');
     }
     return ret;
 }
 
 void setup() {
-  // put your setup code here, to run once:
   Serial.begin(115200);
 }
 
