@@ -37,12 +37,11 @@ while(True):
             s.flush()
             retcode = s.readline().decode('ascii')
             print(retcode)
-            time.sleep(1)
             if("Success" in retcode):
                 print("nice.")
-                time.sleep(2)
-                break
-            time.sleep(.5)
+                exit()
+            time.sleep(1)
     except KeyboardInterrupt:
-        s.close()
-        exit()
+        print("stop")
+    s.close()
+    exit()

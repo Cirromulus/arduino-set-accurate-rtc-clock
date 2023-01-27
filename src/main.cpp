@@ -85,6 +85,7 @@ void loop() {
 
     external_Rtc.SetDateTime(RtcDateTime(new_timestamp));
     if(external_Rtc.LastError() == 0) {
+        external_Rtc.SetIsRunning(true);
         Serial.print("Success: ");
         printDateTime(external_Rtc.GetDateTime());
     } else {
