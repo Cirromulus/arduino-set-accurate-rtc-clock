@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include <Wire.h>
 #include <DS1307RTC.h>
-#include <Time.h>
+#include <TimeLib.h>
 
 static constexpr unsigned max_bufsize = 64;
 
